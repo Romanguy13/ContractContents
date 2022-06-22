@@ -4,11 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { DAppProvider } from '@usedapp/core'
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+const config = {
+  readOnlyChainId: 31337,
+  readOnlyUrls: {
+    31337: 'http://127.0.0.1:8545',
+  },
+}
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <DAppProvider config={config}>
+      <App />
+  </DAppProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

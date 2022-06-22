@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { useEtherBalance } from '@usedapp/core'
+import { formatEther } from '@ethersproject/units'
+
+const addr = "0x70997970C51812dc3A010C7d01b50e0d17dc79C8"
 
 function App() {
+  const bal = useEtherBalance(addr)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    {bal && (
+      <div>
+        balance:
+        <p className="bold">{formatEther(bal)}</p>
+      </div>
+    )}
     </div>
   );
 }
 
-export default App;
+export default App
