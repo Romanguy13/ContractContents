@@ -1,11 +1,10 @@
-
 import './App.css';
-import TokenggAvax from './components/TokenggAvax';
+import VaultBalances from './components/VaultBalances';
 
 function App() {
   return (
     <div>
-    <TokenggAvax />
+    <VaultBalances />
     </div>
   );
 }
